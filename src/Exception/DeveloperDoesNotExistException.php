@@ -45,9 +45,9 @@ class DeveloperDoesNotExistException extends ApiException implements ApigeeEdgeE
    * @param \Throwable|null $previous
    *   Previous exception.
    */
-  public function __construct(string $email, string $message = 'Developer with @email email address not found. Running the developer sync could fix this.', int $code = 0, \Throwable $previous = NULL) {
+  public function __construct(string $email, string $message = 'Developer with @email email address not found. Running the developer sync could fix thiss.', int $code = 0, \Throwable $previous = NULL) {
     $this->email = $email;
-    $message = strtr($message, ['@email' => $email]);
+    $message = \Drupal::translation()->translate($message, ['@email' => $email]);
     parent::__construct($message, $code, $previous);
   }
 
