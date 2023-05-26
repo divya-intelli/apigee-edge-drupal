@@ -80,6 +80,7 @@ final class DeveloperAppNameConverter implements ParamConverterInterface {
       if ($developer_id) {
         $app_storage = $this->entityTypeManager->getStorage('developer_app');
         $app_ids = $app_storage->getQuery()
+          ->accessCheck(TRUE)
           ->condition('developerId', $developer_id)
           ->condition('name', $value)
           ->execute();

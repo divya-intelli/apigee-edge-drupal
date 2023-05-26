@@ -77,6 +77,7 @@ final class TeamAppNameConverter implements ParamConverterInterface {
     if ($team) {
       $app_storage = $this->entityTypeManager->getStorage('team_app');
       $app_ids = $app_storage->getQuery()
+        ->accessCheck(TRUE)
         ->condition('companyName', $team->id())
         ->condition('name', $value)
         ->execute();
