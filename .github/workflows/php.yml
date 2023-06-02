@@ -30,12 +30,13 @@ jobs:
       matrix:
         php-version:
          # - "7.4"
-          - "8.0"
+         # - "8.0"
           - "8.1"
         drupal-core:
           # Should update the following as the minimum supported version from Drupal.org
-          - "9.4.x"
-          - "9.5.x"
+          #- "9.4.x"
+          #- "9.5.x"
+          - "10.1.x"
 
     steps:
 
@@ -98,7 +99,7 @@ jobs:
         composer update --with-all-dependencies
         composer require --dev phpspec/prophecy-phpunit:^2
         composer config --no-plugins allow-plugins.drupal/console-extend-plugin true
-        composer require --dev drupal/console --with-dependencies
+        #composer require --dev drupal/console --with-dependencies
 
 
     # Install drupal using minimal installation profile and enable the module.
