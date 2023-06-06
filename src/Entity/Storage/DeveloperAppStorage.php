@@ -106,7 +106,7 @@ class DeveloperAppStorage extends AppStorage implements DeveloperAppStorageInter
    * {@inheritdoc}
    */
   public function loadByDeveloper(string $developer_id): array {
-    //need to load all the developers
+    // Need to load all the developers.
     $query = $this->getQuery()->accessCheck(FALSE);
     // We have to figure out whether this is an email or a UUID to call the
     // best API endpoint that is possible.

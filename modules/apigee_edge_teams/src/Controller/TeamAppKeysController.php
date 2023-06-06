@@ -37,6 +37,7 @@ class TeamAppKeysController extends DeveloperAppKeysController {
     $payload = [];
     if ($team) {
       $app_storage = $this->entityTypeManager->getStorage('team_app');
+      // Get all the team apps.
       $app_ids = $app_storage->getQuery()
         ->accessCheck(FALSE)
         ->condition('companyName', $team->id())

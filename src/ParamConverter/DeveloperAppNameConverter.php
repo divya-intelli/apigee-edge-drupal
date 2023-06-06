@@ -79,7 +79,7 @@ final class DeveloperAppNameConverter implements ParamConverterInterface {
       $developer_id = $user->get('apigee_edge_developer_id')->value;
       if ($developer_id) {
         $app_storage = $this->entityTypeManager->getStorage('developer_app');
-        //need the app id of the user
+        // Need the app id of the user.
         $app_ids = $app_storage->getQuery()
           ->accessCheck(FALSE)
           ->condition('developerId', $developer_id)
