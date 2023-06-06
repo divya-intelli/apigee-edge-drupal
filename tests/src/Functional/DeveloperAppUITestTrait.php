@@ -349,7 +349,7 @@ trait DeveloperAppUITestTrait {
       $storage = \Drupal::entityTypeManager()->getStorage('developer_app');
       $results_ids = $storage
         ->getQuery()
-        ->accessCheck(TRUE)
+        ->accessCheck(FALSE)
         ->condition('developerId', $developer->uuid())
         ->condition('name', $name)
         ->execute();

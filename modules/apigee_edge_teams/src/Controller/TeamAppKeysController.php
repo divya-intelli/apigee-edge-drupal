@@ -38,7 +38,7 @@ class TeamAppKeysController extends DeveloperAppKeysController {
     if ($team) {
       $app_storage = $this->entityTypeManager->getStorage('team_app');
       $app_ids = $app_storage->getQuery()
-        ->accessCheck(TRUE)
+        ->accessCheck(FALSE)
         ->condition('companyName', $team->id())
         ->condition('name', $app->getName())
         ->execute();
