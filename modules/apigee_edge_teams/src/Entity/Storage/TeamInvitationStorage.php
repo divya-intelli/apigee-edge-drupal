@@ -147,7 +147,7 @@ class TeamInvitationStorage extends SqlContentEntityStorage implements TeamInvit
    * {@inheritdoc}
    */
   public function loadByRecipient(string $email, ?string $team_id = NULL): array {
-    $query = $this->getQuery()->accessCheck(FALSE)->condition('recipient', $email);
+    $query = $this->getQuery()->accessCheck(TRUE)->condition('recipient', $email);
 
     if ($team_id) {
       $query->condition('team', $team_id);
