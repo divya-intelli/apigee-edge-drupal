@@ -33,6 +33,7 @@ jobs:
         drupal-core:
           # Should update the following as the minimum supported version from Drupal.org
           - "10.0.x"
+          - "10.1.x"
 
     steps:
 
@@ -53,6 +54,8 @@ jobs:
     - name: Checkout Drupal core
       run: |
         git clone --depth 1 --branch ${{ matrix.drupal-core }} https://github.com/drupal/drupal.git drupal
+        composer remove --no-update drupal/core
+        composer require --update-with-all-dependencies drupal/core-recommended:${{ matrix.drupal-core }}
         mkdir -p drupal/modules/contrib/apigee_edge
         mkdir -p drupal/sites/simpletest/browser_output
   
