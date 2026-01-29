@@ -103,7 +103,7 @@ jobs:
         composer require wikimedia/composer-merge-plugin
         composer config --json extra.merge-plugin.require '["modules/contrib/apigee_edge/composer.json"]'
         composer config platform.php ${{ matrix.php-version }}
-        composer update --with-all-dependencies
+        composer update -W
         composer require --dev phpspec/prophecy-phpunit:^2
         composer config --no-plugins allow-plugins.drupal/console-extend-plugin true
 
